@@ -18,9 +18,12 @@ Route::group(['namespace' => 'App\Http\Controllers','prefix'=>'admin', 'as'=>'ad
 
     Route::middleware([AdminMiddleware::class])->group(function () {
         Route::get('/', 'DashboardController@index')->name('accueil');
-        Route::get('/drivers', 'DriversController@index')->name('drivers');
-        Route::get('/create', 'DriversController@create')->name('drivers_create');
-        Route::post('/store', 'DriversController@store')->name('drivers_store');
+        Route::get('bloquer', 'DashboardController@bloquer')->name('bloquer');
+        Route::get('drivers', 'DriversController@index')->name('drivers');
+        Route::get('create', 'DriversController@create')->name('drivers_create');
+        Route::post('store', 'DriversController@store')->name('drivers_store');
+        Route::get('edit/{id}', 'DriversController@edit')->name('drivers_edit');
+        Route::post('destroy/{id}', 'DriversController@destroy')->name('drivers_delete');
     });
 
 });

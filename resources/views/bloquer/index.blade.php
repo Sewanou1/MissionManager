@@ -6,52 +6,11 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header d-flex justify-content-between">
-        <h3 class="card-title mr-auto p-2">{{ $title }}</h3>
-        <a href="{{ route('admin.drivers_create') }}" class="btn btn-primary p-2">
-            <i class="fas fa-plus mr-1"></i>Ajouter
-        </a>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                <th>#</th>
-                <th>Nom</th>
-                <th>Prénom(s)</th>
-                <th>Numéro Permis</th>
-                <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach ($drivers as $driver)
-                        <tr>
-                        <td>{{ $count}}</td>
-                        <td>{{ $driver->nom }}</td>
-                        <td>{{ $driver->prenom }}</td>
-                        <td>{{ $driver->numPermis }}</td>
-                        <td class="text-center py-0 align-middle">
-                            <div class="btn-group btn-group-sm">
-                                {{-- <a href="#" class="btn btn-info "><i class="fas fa-eye"></i></a> --}}
-                                <a href="{{ route('admin.drivers_edit', $driver->idConducteur)}}" class="btn btn-primary mr-2 ml-2"><i class="fas fa-pen"></i></a>
-                                <form method="POST" action="{{ route('admin.drivers_delete', $driver->idConducteur) }}" class="delete">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger ">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                        </tr>
 
-                        {{ $count++ }}
-                    @endforeach
-                </tfoot>
-            </table>
+        <div class="card-body">
+
+            <p class="card-title mr-auto p-2">{{ $title }}</p>
         </div>
-        <!-- /.card-body -->
     </div>
 @endsection
 

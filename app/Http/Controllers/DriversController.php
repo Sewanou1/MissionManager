@@ -109,7 +109,6 @@ class DriversController extends Controller
      */
     public function destroy(string $id)
     {
-
         try {
             $driver = Driver::findOrFail($id);
 

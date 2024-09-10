@@ -28,6 +28,11 @@ class LoginController extends Controller
         if (!isset($admin)) {
             toastr()->error('Vous n\'êtes pas autorisé Veuillez contacter l\'admin');
             return redirect()->back()->withInput($request->only('email', 'remember'));
+        }elseif($admin->statut==0){
+            toastr()->error('Vous n\'êtes pas autorisé Veuillez contacter l\'admin');
+            //abort(403);
+            $title="Vous n\'êtes pas autorisé Veuillez contacter l\'admin";
+            return view('bloquer.index', compact('title'));
         } else {
             if (auth('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
                 toastr()->success('Welcome');

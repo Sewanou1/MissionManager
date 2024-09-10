@@ -15,14 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        $this->call([
-            CarSeeder::class,
-        ]);
+       // $this->call([ CarSeeder::class]);
+
+       // $this->call(DriverSeeder::class);
+
 
         User::factory()->create([
-            'name' => 'Admin',
-            'password' => '123456789',
-            'email' => 'admin@gmail.com',
+            'name' => 'Admin1',
+            'password' => '1234567891',
+            'email' => 'admin1@gmail.com',
         ]);
     }
 }
